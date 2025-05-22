@@ -3,11 +3,10 @@ import React from "react";
 import "./App.css";
 import TicTacToe from "./components/TicTacToe";
 
-
-
 export default function App() {
- 
   return (
-    <TicTacToe/>
+    <div id="main">
+      <TicTacToe />
+    </div>
   );
 }
