@@ -7,7 +7,6 @@ export default function TicTacToe() {
   const { board, handleClick, getStatusMessage, resetGame } = useTicTacToe();
 
   return (
-    
     <div className="game">
       <div className="status">
         {getStatusMessage()}
@@ -24,6 +23,11 @@ export default function TicTacToe() {
               className="cell"
               onClick={() => handleClick(i)}
               disabled={b !== null}
+              style={{
+                color: b === "X" ? "#222831" : "#393E46",
+                backgroundColor:
+                  b === "X" ? "#FA812F" : b === "0" ? "#FFB22C" : "#522546",
+              }}
             >
               {b}
             </button>

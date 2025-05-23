@@ -48,7 +48,7 @@ const useTicTacToe = () => {
     setBoard(initialBoard);
     setIsXNext(true);
   };
-  return { board, handleClick, calculateWinner, getStatusMessage, resetGame };
+  return { board, handleClick, calculateWinner, getStatusMessage, resetGame,isXNext };
 };
 
 export default useTicTacToe;
