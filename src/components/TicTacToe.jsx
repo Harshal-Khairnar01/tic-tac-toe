@@ -9,7 +9,10 @@ export default function TicTacToe() {
   return (
     <div className="game">
       <div className="status">
-        {getStatusMessage()}
+        <h1 className="status-msg">
+           {getStatusMessage()}
+        </h1>
+       
         <button className="reset-btn" onClick={resetGame}>
           Reset Game
         </button>
@@ -26,7 +29,7 @@ export default function TicTacToe() {
               style={{
                 color: b === "X" ? "#222831" : "#393E46",
                 backgroundColor:
-                  b === "X" ? "#FA812F" : b === "0" ? "#FFB22C" : "#522546",
+                  b === "X" ? "#33ff74" : b === "0" ? "#FFB22C" : "#522546",
               }}
             >
               {b}
