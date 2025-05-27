@@ -5,8 +5,8 @@ import TicTacToe from "./components/TicTacToe";
 
 export default function App() {
   return (
-    <div id="main">
+   
       <TicTacToe />
-    </div>
+  
   );
 }

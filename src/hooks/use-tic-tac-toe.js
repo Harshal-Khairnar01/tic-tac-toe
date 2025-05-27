@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const initialBoard = () => Array(9).fill(null);
 
 const useTicTacToe = () => {
   const [board, setBoard] = useState(initialBoard());
   const [isXNext, setIsXNext] = useState(true);
+  const [winMsg, setWinMsg] = useState("");
 
   const WINNING_PATTERNS = [
     [0, 1, 2],
@@ -38,9 +39,18 @@ const useTicTacToe = () => {
     setIsXNext(!isXNext);
   };
 
+   useEffect(() => {
+    const winner = calculateWinner(board);
+    if (winner) {
+      setWinMsg("win");
+    }
+  }, [board]);
+
   const getStatusMessage = () => {
     const winner = calculateWinner(board);
-    if (winner) return `Player ${winner} Wins!`;
+    if (winner) {
+      return `Player ${winner} Wins!`;
+    }
     if (!board.includes(null)) return `It's a Draw`;
     return `Player ${isXNext ? "X" : "0"} Turn!`;
   };
@@ -48,7 +58,15 @@ const useTicTacToe = () => {
     setBoard(initialBoard);
     setIsXNext(true);
   };
-  return { board, handleClick, calculateWinner, getStatusMessage, resetGame,isXNext };
+  return {
+    board,
+    handleClick,
+    calculateWinner,
+    getStatusMessage,
+    resetGame,
+    isXNext,
+    winMsg
+  };
 };
 
 export default useTicTacToe;
