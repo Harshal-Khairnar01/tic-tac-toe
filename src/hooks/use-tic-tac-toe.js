@@ -39,11 +39,14 @@ const useTicTacToe = () => {
     setIsXNext(!isXNext);
   };
 
-   useEffect(() => {
+  useEffect(() => {
     const winner = calculateWinner(board);
     if (winner) {
       setWinMsg("win");
     }
+    setTimeout(() => {
+      setWinMsg("");
+    }, 4000);
   }, [board]);
 
   const getStatusMessage = () => {
@@ -65,7 +68,7 @@ const useTicTacToe = () => {
     getStatusMessage,
     resetGame,
     isXNext,
-    winMsg
+    winMsg,
   };
 };
 
